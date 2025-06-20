@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer AI Prediction | Muddasir Khuwaja</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Breast Cancer <span class="green-title">Prediction System</span></h1>
+        <p class="subtitle">
+            <b>AI/ML-powered tool</b> to predict if a breast tumor is <span class="benign">Benign</span> or <span class="malignant">Malignant</span>.
+        </p>
+    </header>
+    <main>
+        <section class="explanation">
+            <h2 class="green-title">About This Tool</h2>
+            <ul>
+                <li><b>Goal:</b> Predict if a breast tumor is cancerous (<span class="malignant">malignant</span>) or not (<span class="benign">benign</span>).</li>
+                <li><b>Technique:</b> Logistic Regression (supervised classification algorithm).</li>
+                <li><b>Why:</b> Assist doctors with quick, accurate, and AI-driven predictions using medical data.</li>
+                <li><b>Inputs:</b> Cell sample measurements (see below).</li>
+                <li><b>Outputs:</b> <span class="benign">Benign (2)</span> or <span class="malignant">Malignant (4)</span> tumor prediction.</li>
+            </ul>
+            <p>
+                <b>How does it work?</b><br>
+                The model uses several features from a breast cell sample, processes them via logistic regression, and predicts whether the tumor is likely benign or malignant.
+                This helps in early detection and treatment planning.
+            </p>
+        </section>
+        <section class="form-section">
+            <form method="post" autocomplete="off">
+                <fieldset>
+                    <legend class="green-title">Enter Patient Cell Sample Features</legend>
+                    {% for feature in features %}
+                        <div class="form-group">
+                            <label for="{{ feature }}">{{ feature.replace('_', ' ') }}:</label>
+                            <input type="number" name="{{ feature }}" id="{{ feature }}" min="1" max="10" step="any" required value="{{ user_input.get(feature, '') }}">
+                        </div>
+                    {% endfor %}
+                    <button type="submit">Predict</button>
+                </fieldset>
+            </form>
+        </section>
+        {% if prediction %}
+        <section class="result-section">
+            <h2 class="{% if prediction == 2 %}benign{% else %}malignant{% endif %}">Prediction Result</h2>
+            <div class="prediction-box {% if prediction == 2 %}benign{% else %}malignant{% endif %}">
+                <p><b>Tumor Type:</b> {{ cancer_type }}</p>
+                <ul>
+                    {% for key, value in user_input.items() %}
+                        <li><b>{{ key.replace('_', ' ') }}:</b> {{ value }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <p class="note">
+                <b>Note:</b> This tool is for educational and demonstration purposes only. Always consult a medical professional for real-world diagnosis.
+            </p>
+        </section>
+        {% endif %}
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>
+                Made with <span style="color:#43ea82;">&#10084;&#65039;</span> by <b>Muddasir Khuwaja</b> | AI/ML Engineer in the Medical Industry, Italy
+            </p>
+            <p>
+                &copy; 2025 | <a href="https://github.com/MuddasirKHuwaja998" target="_blank">GitHub</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
