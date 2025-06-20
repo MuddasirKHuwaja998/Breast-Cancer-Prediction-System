@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+:root {
+    --bg: #16161b;
+    --panel: #22222a;
+    --panel2: #23232b;
+    --text: #e9fbe5;
+    --muted: #b3b3b3;
+    --green: #43ea82;
+    --green-dark: #19b85b;
+    --red: #f65f5f;
+    --benign-bg: #253e2a;
+    --malignant-bg: #3a2323;
+    --border-radius: 16px;
+}
+
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: var(--panel);
+    color: var(--text);
+    padding: 2.5rem 1rem 1.2rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 20px #000;
+    border-bottom: 2px solid var(--green);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.green-title {
+    color: var(--green);
+}
+
+.subtitle {
+    margin-top: 0.7rem;
+    font-size: 1.15rem;
+    color: var(--muted);
+}
+
+main {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    background: var(--panel2);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 32px #101014;
+    padding: 2.5rem 2rem;
+}
+
+.explanation {
+    background: #18181e;
+    border-left: 5px solid var(--green);
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.explanation h2 {
+    color: var(--green);
+    margin-top: 0;
+}
+
+ul {
+    margin: 0.7rem 0 1.2rem 1.2rem;
+    font-size: 1.04rem;
+}
+
+.form-section {
+    margin-bottom: 2.5rem;
+}
+
+form {
+    background: var(--panel);
+    border-radius: 12px;
+    padding: 1.8rem 1.5rem;
+    box-shadow: 0 1px 6px #222;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+legend {
+    font-size: 1.25rem;
+    color: var(--green);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: var(--green);
+}
+
+input[type="number"] {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1.5px solid #244;
+    font-size: 1.05rem;
+    background: #23232b;
+    color: #eafbe5;
+    transition: border 0.2s;
+}
+
+input[type="number"]:focus {
+    border: 1.5px solid var(--green);
+    outline: none;
+    background: #1b1b22;
+}
+
+button {
+    background: linear-gradient(90deg, var(--green), var(--green-dark));
+    color: #18181e;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: none;
+    padding: 0.8rem 2.2rem;
+    border-radius: 9px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    letter-spacing: 0.5px;
+    box-shadow: 0 1px 8px #101014;
+}
+
+button:hover {
+    background: linear-gradient(90deg, var(--green-dark), var(--green));
+    color: var(--text);
+}
+
+.result-section {
+    margin-top: 2rem;
+    background: #18181e;
+    border-radius: 12px;
+    padding: 1.5rem 1.5rem;
+    border-left: 5px solid var(--green);
+    box-shadow: 0 3px 12px #101014;
+}
+
+h2.benign {
+    color: var(--green);
+}
+h2.malignant {
+    color: var(--red);
+}
+
+.prediction-box {
+    padding: 1.2rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    background: var(--benign-bg);
+    border-left: 6px solid var(--green);
+    color: var(--green);
+}
+
+.prediction-box.malignant {
+    background: var(--malignant-bg);
+    border-left: 6px solid var(--red);
+    color: var(--red);
+}
+
+.note {
+    color: #fbc383;
+    font-size: 0.98rem;
+    margin-top: 1rem;
+}
+
+.benign {
+    color: var(--green);
+    font-weight: 700;
+}
+
+.malignant {
+    color: var(--red);
+    font-weight: 700;
+}
+
+footer {
+    background: var(--panel);
+    color: var(--green);
+    text-align: center;
+    padding: 1.5rem 0 1rem 0;
+    margin-top: 3rem;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: 0 -3px 20px #000;
+}
+
+.footer-content {
+    font-size: 1.15rem;
+}
+
+.footer-content a {
+    color: var(--green);
+    text-decoration: underline;
+    font-weight: 600;
+}
